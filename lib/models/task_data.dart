@@ -3,11 +3,7 @@ import 'task.dart';
 import 'dart:collection';
 
 class Data extends ChangeNotifier {
-  List<Task> _tasks = [
-    Task(name: 'Do homework'),
-    Task(name: 'Do housework'),
-    Task(name: 'Go to school'),
-  ];
+  List<Task> _tasks = [];
 
   UnmodifiableListView<Task> get tasks {
     return UnmodifiableListView<Task>(_tasks);
@@ -25,6 +21,11 @@ class Data extends ChangeNotifier {
 
   void deleteTask(Task task){
     _tasks.remove(task);
+    notifyListeners();
+  }
+
+  void editTask(Task task, String name){
+    task.setName(name);
     notifyListeners();
   }
 

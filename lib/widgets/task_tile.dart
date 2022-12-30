@@ -5,13 +5,15 @@ class TaskTile extends StatelessWidget {
   final bool isChecked;
   final Null Function(dynamic) checkboxCallback;
   final Function() deleteCallback;
+  final Function() editTaskCallback;
 
   // ignore: use_key_in_widget_constructors
   const TaskTile(
       {required this.isChecked,
       required this.tileTitle,
       required this.checkboxCallback,
-      required this.deleteCallback});
+      required this.deleteCallback,
+      required this.editTaskCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class TaskTile extends StatelessWidget {
             color: isChecked == true ? Colors.black26 : Colors.black,
             decoration: isChecked == true ? TextDecoration.lineThrough : null),
       ),
+      onTap: editTaskCallback,
       trailing: Checkbox(
         activeColor: Colors.black26,
         value: isChecked,

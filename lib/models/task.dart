@@ -6,4 +6,8 @@ class Task {
   toggleDone() {
     isDone = !isDone;
   }
+
+  setName(String name) {
+    this.name = name;
+  }
 }
