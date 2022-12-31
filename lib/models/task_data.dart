@@ -14,21 +14,31 @@ class Data extends ChangeNotifier {
     notifyListeners();
   }
 
-  void checkTask(Task task){
+  void checkTask(Task task) {
     task.toggleDone();
     notifyListeners();
   }
 
-  void deleteTask(Task task){
+  void deleteTask(Task task) {
     _tasks.remove(task);
     notifyListeners();
   }
 
-  void editTask(Task task, String name){
+  void editTask(Task task, String name) {
     task.setName(name);
     notifyListeners();
   }
 
-  int get tasksCount => _tasks.length;
+  int getTaskDone(List<Task> tasks) {
+    int count = 0;
+    for(Task task in tasks) {
+      if (task.isDone == true) {
+        count++;
+      }
+    }
+    return count;
 
+  }
+
+  int get tasksCount => _tasks.length;
 }

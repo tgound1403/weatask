@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/screens/tasks_screen.dart';
+import 'package:flutter_todo_app/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_todo_app/models/task_data.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (BuildContext context) => Data(),
       child: MaterialApp(
-        home: TasksScreen(),
+        home: LoadingScreen(),
       ),
     );
   }

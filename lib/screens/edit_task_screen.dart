@@ -9,14 +9,12 @@ class EditTaskScreen extends StatelessWidget {
   TextEditingController textController = TextEditingController();
 
   void initState() {
-    textController.addListener(() {
-    });
+    textController.addListener(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     Data dataProvider = Provider.of<Data>(context);
-
 
     return Container(
       color: const Color(0xff757575),
@@ -42,8 +40,9 @@ class EditTaskScreen extends StatelessWidget {
               autofocus: true,
               textAlign: TextAlign.center,
               controller: textController,
-              onSubmitted: (text){
-                dataProvider.editTask(dataProvider.tasks[indexTaskEdit],textController.text);
+              onSubmitted: (text) {
+                dataProvider.editTask(
+                    dataProvider.tasks[indexTaskEdit], textController.text);
                 Navigator.pop(context);
               },
             ),
@@ -54,8 +53,9 @@ class EditTaskScreen extends StatelessWidget {
                     color: Colors.lightBlueAccent,
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: TextButton(
-                  onPressed: (){
-                    dataProvider.editTask(dataProvider.tasks[indexTaskEdit],textController.text);
+                  onPressed: () {
+                    dataProvider.editTask(
+                        dataProvider.tasks[indexTaskEdit], textController.text);
                     Navigator.pop(context);
                   },
                   child: const Text(

@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/widgets/tasks_list.dart';
 import 'package:flutter_todo_app/screens/add_task_screen.dart';
 import 'package:flutter_todo_app/models/task_data.dart';
+import 'package:flutter_todo_app/widgets/weather.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_todo_app/widgets/tip_card.dart';
 
 class TasksScreen extends StatelessWidget {
+  final locationData;
+  TasksScreen(this.locationData);
+
   @override
   Widget build(BuildContext context) {
     Data dataProvider = Provider.of<Data>(context);
@@ -36,32 +41,20 @@ class TasksScreen extends StatelessWidget {
               padding: const EdgeInsets.only(
                   top: 60, left: 30, bottom: 30, right: 30),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(30))),
-                      child: const Icon(
-                        Icons.list,
-                        color: Colors.lightBlueAccent,
-                        size: 30,
-                      )),
+                  WeatherWidget(
+                    locationWeather: locationData,
+                  ),
                   const SizedBox(
-                    height: 30,
+                    height: 5,
                   ),
-                  const Text(
-                    'Todoapp',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 48,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "${dataProvider.tasksCount} tasks to do",
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
-                  )
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TipCard(displayText: "${dataProvider.tasksCount - dataProvider.getTaskDone(dataProvider.tasks)} việc cần làm",),
+                        TipCard(displayText: "Đã hoàn thành ${dataProvider.getTaskDone(dataProvider.tasks)}",)
+                      ]),
                 ],
               ),
             ),
@@ -73,6 +66,12 @@ class TasksScreen extends StatelessWidget {
               child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 10,
+                      blurStyle: BlurStyle.normal)
+                ],
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),

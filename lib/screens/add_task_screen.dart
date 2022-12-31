@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import '../models/task_data.dart';
 
 class AddTaskScreen extends StatefulWidget {
-
   @override
   State<AddTaskScreen> createState() => _AddTaskScreenState();
 }
@@ -38,10 +37,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
-              onChanged: (todoContent){
-                  setState(() {
-                    content = todoContent;
-                  });
+              onChanged: (todoContent) {
+                setState(() {
+                  content = todoContent;
+                });
               },
             ),
             const SizedBox(height: 20),
@@ -51,9 +50,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     color: Colors.lightBlueAccent,
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: TextButton(
-                  onPressed: (){
-                      dataProvider.addTask(content);
-                      Navigator.pop(context);
+                  onPressed: () {
+                    dataProvider.addTask(content);
+                    Navigator.pop(context);
                   },
                   child: const Text(
                     'Add',
