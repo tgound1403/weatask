@@ -43,14 +43,14 @@ class WeatherModel {
   }
 
   String getMessage(int? temp) {
-    if (temp! > 25) {
-      return 'Thời tiết thật dễ chịu 😋';
-    } else if (temp > 20) {
+    if (temp! >= 20) {
+      return 'Thời tiết thật dễ chịu, ra ngoài nào 😋';
+    } else if (temp >= 10) {
       return 'Ngoài trời hơi lạnh đó bạn nhớ mang theo 🧥';
-    } else if (temp > 30) {
+    } else if (temp >= 30) {
       return 'Ngoài trời đang nóng lắm nha, mặc 👕 thôi';
     } else {
-      return 'Ngoài trời lạnh lắm nha, bạn nhớ 🧥 và đem theo 🧣 với 🧤 nha';
+      return 'Ngoài trời lạnh lắm, ra ngoài bạn nhớ 🧥 và đem theo 🧣 với 🧤 nha';
     }
   }
 }

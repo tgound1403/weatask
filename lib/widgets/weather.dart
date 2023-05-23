@@ -94,7 +94,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                        "Bạn đang ở ",
                        textAlign: TextAlign.left,
                        style: TextStyle(
-                           fontSize: 24,
+                           fontSize: 20,
                            fontWeight: FontWeight.w500
                        ),
                      ),Text(
@@ -111,7 +111,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                      const Text(
                          'Nhiệt độ hôm nay là ',
                        style: TextStyle(
-                         fontSize: 24,
+                         fontSize: 20,
                          fontWeight: FontWeight.w500
                        ),
                      ),
@@ -129,7 +129,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                    "$message",
                    textAlign: TextAlign.left,
                    style: const TextStyle(
-                       fontSize: 24,
+                       fontSize: 20,
                        fontWeight: FontWeight.w500
                    ),
                  ),
