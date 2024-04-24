@@ -21,7 +21,7 @@ class TasksList extends StatelessWidget {
                     dataProvider.checkTask(task);
                   },
                   deleteCallback: () => onDeleteTask(dataProvider, task),
-                  editTaskCallback: () => onEditTask(context, index),
+                  editTaskCallback: () => task.isDone ? null : onEditTask(context, index),
                 );
               },
               separatorBuilder: (_, __) => const SizedBox(
