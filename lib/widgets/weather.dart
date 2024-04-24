@@ -58,23 +58,23 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        TextButton(
-          onPressed: () async {
-            var weatherData = await weatherModel.getLocationWeather();
-            updateUI(weatherData);
-          },
-          child: Container(
-              padding: const EdgeInsets.all(10),
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(30))),
-              child: const Icon(
-                Icons.list,
-                color: Colors.lightBlueAccent,
-                size: 30,
-              )),
-        ),
-         const SizedBox(height: 10),
+        // TextButton(
+        //   onPressed: () async {
+        //     var weatherData = await weatherModel.getLocationWeather();
+        //     updateUI(weatherData);
+        //   },
+        //   child: Container(
+        //       padding: const EdgeInsets.all(10),
+        //       decoration: const BoxDecoration(
+        //           color: Colors.white,
+        //           borderRadius: BorderRadius.all(Radius.circular(30))),
+        //       child: const Icon(
+        //         Icons.list,
+        //         color: Colors.lightBlueAccent,
+        //         size: 30,
+        //       )),
+        // ),
+        //  const SizedBox(height: 10),
         TipCard(displayText: datetimeNow,),
         const SizedBox(height: 5),
         Card(
