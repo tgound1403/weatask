@@ -2,7 +2,7 @@ import 'package:flutter_todo_app/services/location.dart';
 import 'package:flutter_todo_app/services/networking.dart';
 
 const apiKey = '7d819c15f8eb6feabcd1b68fd44ad405';
-const openWeatherMapURL = 'http://api.openweathermap.org/data/2.5/weather';
+const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
   Future<dynamic> getCityWeather(String cityName) async {
@@ -14,10 +14,8 @@ class WeatherModel {
 
   Future<dynamic> getLocationWeather() async {
     Location location = Location();
-    await location
-        .getCurrentLocation(); // await just use for Future so update the method
-    NetworkHelper networkHelper = NetworkHelper(
-        '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric'); //remember http:// in RL
+    await location.getCurrentLocation(); // await just use for Future so update the method
+    NetworkHelper networkHelper = NetworkHelper('$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric'); //remember http:// in RL
     var weatherData = await networkHelper.getData();
     return weatherData;
   }
